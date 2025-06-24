@@ -35,7 +35,7 @@ export class MdmService {
 			this.mdmConfig = await this.loadMdmConfig()
 			if (this.mdmConfig) {
 				this.log("[MDM] Loaded MDM configuration:", this.mdmConfig)
-				// Automatically enable Roo Code Cloud when MDM config is present
+				// Automatically enable Cybrosys Assista Cloud when MDM config is present
 				await this.ensureCloudEnabled()
 			} else {
 				this.log("[MDM] No MDM configuration found")
@@ -61,19 +61,19 @@ export class MdmService {
 	}
 
 	/**
-	 * Ensure Roo Code Cloud is enabled when MDM config is present
+	 * Ensure Cybrosys Assista Cloud is enabled when MDM config is present
 	 */
 	private async ensureCloudEnabled(): Promise<void> {
 		try {
 			const config = vscode.workspace.getConfiguration(Package.name)
-			const currentValue = config.get<boolean>("rooCodeCloudEnabled", false)
+			const currentValue = config.get<boolean>("cybrosysAssistaCloudEnabled", false)
 
 			if (!currentValue) {
-				this.log("[MDM] Enabling Roo Code Cloud due to MDM policy")
-				await config.update("rooCodeCloudEnabled", true, vscode.ConfigurationTarget.Global)
+				this.log("[MDM] Enabling Cybrosys Assista Cloud due to MDM policy")
+				await config.update("cybrosysAssistaCloudEnabled", true, vscode.ConfigurationTarget.Global)
 			}
 		} catch (error) {
-			this.log("[MDM] Error enabling Roo Code Cloud:", error)
+			this.log("[MDM] Error enabling Cybrosys Assista Cloud:", error)
 		}
 	}
 
@@ -168,14 +168,14 @@ export class MdmService {
 
 		switch (platform) {
 			case "win32": {
-				// Windows: %ProgramData%\RooCode\mdm.json or mdm.dev.json
+				// Windows: %ProgramData%\CybrosysAssista\mdm.json or mdm.dev.json
 				const programData = process.env.PROGRAMDATA || "C:\\ProgramData"
-				return path.join(programData, "RooCode", configFileName)
+				return path.join(programData, "CybrosysAssista", configFileName)
 			}
 
 			case "darwin":
-				// macOS: /Library/Application Support/RooCode/mdm.json or mdm.dev.json
-				return `/Library/Application Support/RooCode/${configFileName}`
+				// macOS: /Library/Application Support/CybrosysAssista/mdm.json or mdm.dev.json
+				return `/Library/Application Support/CybrosysAssista/${configFileName}`
 
 			case "linux":
 			default:

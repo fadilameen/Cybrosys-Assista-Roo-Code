@@ -73,7 +73,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	// Create logger for cloud services
 	const cloudLogger = createDualLogger(createOutputChannelLogger(outputChannel))
 
-	// Initialize Roo Code Cloud service.
+	// Initialize Cybrosys Assista Cloud service.
 	await CloudService.createInstance(context, {
 		stateChanged: () => ClineProvider.getVisibleInstance()?.postStateToWebview(),
 		log: cloudLogger,
@@ -163,7 +163,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	// Allows other extensions to activate once Roo is ready.
 	vscode.commands.executeCommand(`${Package.name}.activationCompleted`)
 
-	// Implements the `RooCodeAPI` interface.
+	// Implements the `CybrosysAssistaAPI` interface.
 	const socketPath = process.env.ROO_CODE_IPC_SOCKET_PATH
 	const enableLogging = typeof socketPath === "string"
 

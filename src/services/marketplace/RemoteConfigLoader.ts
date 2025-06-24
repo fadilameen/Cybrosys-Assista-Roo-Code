@@ -1,7 +1,7 @@
 import axios from "axios"
 import * as yaml from "yaml"
 import { z } from "zod"
-import { getRooCodeApiUrl } from "@roo-code/cloud"
+import { getCybrosysAssistaApiUrl } from "@roo-code/cloud"
 import type { MarketplaceItem, MarketplaceItemType } from "@roo-code/types"
 import { modeMarketplaceItemSchema, mcpMarketplaceItemSchema } from "@roo-code/types"
 
@@ -20,7 +20,7 @@ export class RemoteConfigLoader {
 	private cacheDuration = 5 * 60 * 1000 // 5 minutes
 
 	constructor() {
-		this.apiBaseUrl = getRooCodeApiUrl()
+		this.apiBaseUrl = getCybrosysAssistaApiUrl()
 	}
 
 	async loadAllItems(): Promise<MarketplaceItem[]> {

@@ -5,7 +5,7 @@
     </scenario>
     
     <user_request>
-      Fix PR #4365 in RooCodeInc/Roo-Code.
+      Fix PR #4365 in CybrosysAssistaInc/Roo-Code.
     </user_request>
 
     <workflow>
@@ -17,7 +17,7 @@
   <tool_name>get_pull_request</tool_name>
   <arguments>
     {
-      "owner": "RooCodeInc",
+      "owner": "CybrosysAssistaInc",
       "repo": "Roo-Code",
       "pullNumber": 4365
     }
@@ -28,7 +28,7 @@
   <tool_name>get_pull_request_comments</tool_name>
   <arguments>
     {
-      "owner": "RooCodeInc",
+      "owner": "CybrosysAssistaInc",
       "repo": "Roo-Code",
       "pullNumber": 4365
     }

@@ -7,7 +7,7 @@
 		"editModesConfig": "Edit konfigurasi mode",
 		"editGlobalModes": "Edit Mode Global",
 		"editProjectModes": "Edit Mode Proyek (.roomodes)",
-		"createModeHelpText": "Mode adalah persona khusus yang menyesuaikan perilaku Roo Code. <0>Pelajari tentang Menggunakan Mode</0> atau <1>Menyesuaikan Mode.</1>",
+		"createModeHelpText": "Mode adalah persona khusus yang menyesuaikan perilaku Cybrosys Assista. <0>Pelajari tentang Menggunakan Mode</0> atau <1>Menyesuaikan Mode.</1>",
 		"selectMode": "Cari mode"
 	},
 	"apiConfiguration": {
@@ -32,7 +32,7 @@
 	"roleDefinition": {
 		"title": "Definisi Peran",
 		"resetToDefault": "Reset ke default",
-		"description": "Tentukan keahlian dan kepribadian Roo untuk mode ini. Deskripsi ini membentuk bagaimana Roo mempresentasikan dirinya dan mendekati tugas."
+		"description": "Tentukan keahlian dan kepribadian Assista untuk mode ini. Deskripsi ini membentuk bagaimana Assista mempresentasikan dirinya dan mendekati tugas."
 	},
 	"whenToUse": {
 		"title": "Kapan Menggunakan (opsional)",
@@ -70,7 +70,7 @@
 		"types": {
 			"ENHANCE": {
 				"label": "Tingkatkan Prompt",
-				"description": "Gunakan peningkatan prompt untuk mendapatkan saran atau perbaikan yang disesuaikan untuk input Anda. Ini memastikan Roo memahami maksud Anda dan memberikan respons terbaik. Tersedia melalui ikon ✨ di chat."
+				"description": "Gunakan peningkatan prompt untuk mendapatkan saran atau perbaikan yang disesuaikan untuk input Anda. Ini memastikan Assista memahami maksud Anda dan memberikan respons terbaik. Tersedia melalui ikon ✨ di chat."
 			},
 			"EXPLAIN": {
 				"label": "Jelaskan Kode",
@@ -135,7 +135,7 @@
 		},
 		"roleDefinition": {
 			"label": "Definisi Peran",
-			"description": "Tentukan keahlian dan kepribadian Roo untuk mode ini."
+			"description": "Tentukan keahlian dan kepribadian Assista untuk mode ini."
 		},
 		"whenToUse": {
 			"label": "Kapan Menggunakan (opsional)",

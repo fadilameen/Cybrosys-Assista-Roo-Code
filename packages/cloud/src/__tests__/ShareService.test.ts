@@ -37,7 +37,7 @@ vi.mock("vscode", () => ({
 
 // Mock config
 vi.mock("../Config", () => ({
-	getRooCodeApiUrl: () => "https://app.roocode.com",
+	getCybrosysAssistaApiUrl: () => "https://app.cybrosysassista.com",
 }))
 
 // Mock utils
@@ -73,7 +73,7 @@ describe("ShareService", () => {
 			const mockResponse = {
 				data: {
 					success: true,
-					shareUrl: "https://app.roocode.com/share/abc123",
+					shareUrl: "https://app.cybrosysassista.com/share/abc123",
 				},
 			}
 
@@ -83,9 +83,9 @@ describe("ShareService", () => {
 			const result = await shareService.shareTask("task-123", "organization")
 
 			expect(result.success).toBe(true)
-			expect(result.shareUrl).toBe("https://app.roocode.com/share/abc123")
+			expect(result.shareUrl).toBe("https://app.cybrosysassista.com/share/abc123")
 			expect(mockedAxios.post).toHaveBeenCalledWith(
-				"https://app.roocode.com/api/extension/share",
+				"https://app.cybrosysassista.com/api/extension/share",
 				{ taskId: "task-123", visibility: "organization" },
 				{
 					headers: {
@@ -95,14 +95,14 @@ describe("ShareService", () => {
 					},
 				},
 			)
-			expect(vscode.env.clipboard.writeText).toHaveBeenCalledWith("https://app.roocode.com/share/abc123")
+			expect(vscode.env.clipboard.writeText).toHaveBeenCalledWith("https://app.cybrosysassista.com/share/abc123")
 		})
 
 		it("should share task with public visibility", async () => {
 			const mockResponse = {
 				data: {
 					success: true,
-					shareUrl: "https://app.roocode.com/share/abc123",
+					shareUrl: "https://app.cybrosysassista.com/share/abc123",
 				},
 			}
 
@@ -113,7 +113,7 @@ describe("ShareService", () => {
 
 			expect(result.success).toBe(true)
 			expect(mockedAxios.post).toHaveBeenCalledWith(
-				"https://app.roocode.com/api/extension/share",
+				"https://app.cybrosysassista.com/api/extension/share",
 				{ taskId: "task-123", visibility: "public" },
 				expect.any(Object),
 			)
@@ -123,7 +123,7 @@ describe("ShareService", () => {
 			const mockResponse = {
 				data: {
 					success: true,
-					shareUrl: "https://app.roocode.com/share/abc123",
+					shareUrl: "https://app.cybrosysassista.com/share/abc123",
 				},
 			}
 
@@ -134,7 +134,7 @@ describe("ShareService", () => {
 
 			expect(result.success).toBe(true)
 			expect(mockedAxios.post).toHaveBeenCalledWith(
-				"https://app.roocode.com/api/extension/share",
+				"https://app.cybrosysassista.com/api/extension/share",
 				{ taskId: "task-123", visibility: "organization" },
 				expect.any(Object),
 			)

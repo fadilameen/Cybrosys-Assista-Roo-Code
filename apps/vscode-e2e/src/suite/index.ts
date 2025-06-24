@@ -3,12 +3,12 @@ import Mocha from "mocha"
 import { glob } from "glob"
 import * as vscode from "vscode"
 
-import type { RooCodeAPI } from "@roo-code/types"
+import type { CybrosysAssistaAPI } from "@roo-code/types"
 
 import { waitFor } from "./utils"
 
 export async function run() {
-	const extension = vscode.extensions.getExtension<RooCodeAPI>("RooVeterinaryInc.roo-cline")
+	const extension = vscode.extensions.getExtension<CybrosysAssistaAPI>("RooVeterinaryInc.roo-cline")
 
 	if (!extension) {
 		throw new Error("Extension not found")

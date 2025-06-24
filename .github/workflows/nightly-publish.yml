@@ -2,7 +2,7 @@ name: Nightly Publish
 
 on:
   workflow_run:
-    workflows: ["Code QA Roo Code"]
+    workflows: ["Code QA Cybrosys Assista"]
     types:
       - completed
     branches: [main]

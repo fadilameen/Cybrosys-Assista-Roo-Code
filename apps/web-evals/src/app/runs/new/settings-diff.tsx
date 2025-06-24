@@ -1,14 +1,14 @@
 import { Fragment, HTMLAttributes } from "react"
 
-import { type Keys, type RooCodeSettings, GLOBAL_SETTINGS_KEYS, PROVIDER_SETTINGS_KEYS } from "@roo-code/types"
+import { type Keys, type CybrosysAssistaSettings, GLOBAL_SETTINGS_KEYS, PROVIDER_SETTINGS_KEYS } from "@roo-code/types"
 
 import { cn } from "@/lib/utils"
 
-export const ROO_CODE_SETTINGS_KEYS = [...GLOBAL_SETTINGS_KEYS, ...PROVIDER_SETTINGS_KEYS] as Keys<RooCodeSettings>[]
+export const ROO_CODE_SETTINGS_KEYS = [...GLOBAL_SETTINGS_KEYS, ...PROVIDER_SETTINGS_KEYS] as Keys<CybrosysAssistaSettings>[]
 
 type SettingsDiffProps = HTMLAttributes<HTMLDivElement> & {
-	defaultSettings: RooCodeSettings
-	customSettings: RooCodeSettings
+	defaultSettings: CybrosysAssistaSettings
+	customSettings: CybrosysAssistaSettings
 }
 
 export function SettingsDiff({

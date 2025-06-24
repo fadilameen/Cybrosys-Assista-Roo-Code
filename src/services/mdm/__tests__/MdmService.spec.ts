@@ -21,7 +21,7 @@ vi.mock("@roo-code/cloud", () => ({
 		},
 	},
 	getClerkBaseUrl: vi.fn(),
-	PRODUCTION_CLERK_BASE_URL: "https://clerk.roocode.com",
+	PRODUCTION_CLERK_BASE_URL: "https://clerk.cybrosysassista.com",
 }))
 
 vi.mock("vscode", () => ({
@@ -47,9 +47,9 @@ vi.mock("../../../i18n", () => ({
 	t: vi.fn((key: string) => {
 		const translations: Record<string, string> = {
 			"mdm.errors.cloud_auth_required":
-				"Your organization requires Roo Code Cloud authentication. Please sign in to continue.",
+				"Your organization requires Cybrosys Assista Cloud authentication. Please sign in to continue.",
 			"mdm.errors.organization_mismatch":
-				"You must be authenticated with your organization's Roo Code Cloud account.",
+				"You must be authenticated with your organization's Cybrosys Assista Cloud account.",
 			"mdm.errors.verification_failed": "Unable to verify organization authentication.",
 		}
 		return translations[key] || key
@@ -82,7 +82,7 @@ describe("MdmService", () => {
 		mockOs.platform.mockReturnValue("darwin")
 
 		// Setup default mock for getClerkBaseUrl to return development URL
-		mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.roocode.com")
+		mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.cybrosysassista.com")
 
 		// Setup VSCode mocks
 		const mockConfig = {
@@ -94,7 +94,7 @@ describe("MdmService", () => {
 		// Reset mocks
 		vi.clearAllMocks()
 		// Re-setup the default after clearing
-		mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.roocode.com")
+		mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.cybrosysassista.com")
 	})
 
 	afterEach(() => {
@@ -170,19 +170,19 @@ describe("MdmService", () => {
 
 			await MdmService.createInstance()
 
-			expect(mockFs.existsSync).toHaveBeenCalledWith(path.join("C:\\ProgramData", "RooCode", "mdm.json"))
+			expect(mockFs.existsSync).toHaveBeenCalledWith(path.join("C:\\ProgramData", "CybrosysAssista", "mdm.json"))
 		})
 
 		it("should use correct path for Windows in development", async () => {
 			mockOs.platform.mockReturnValue("win32")
 			process.env.PROGRAMDATA = "C:\\ProgramData"
-			mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.roocode.com")
+			mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.cybrosysassista.com")
 
 			mockFs.existsSync.mockReturnValue(false)
 
 			await MdmService.createInstance()
 
-			expect(mockFs.existsSync).toHaveBeenCalledWith(path.join("C:\\ProgramData", "RooCode", "mdm.dev.json"))
+			expect(mockFs.existsSync).toHaveBeenCalledWith(path.join("C:\\ProgramData", "CybrosysAssista", "mdm.dev.json"))
 		})
 
 		it("should use correct path for macOS in production", async () => {
@@ -193,18 +193,18 @@ describe("MdmService", () => {
 
 			await MdmService.createInstance()
 
-			expect(mockFs.existsSync).toHaveBeenCalledWith("/Library/Application Support/RooCode/mdm.json")
+			expect(mockFs.existsSync).toHaveBeenCalledWith("/Library/Application Support/CybrosysAssista/mdm.json")
 		})
 
 		it("should use correct path for macOS in development", async () => {
 			mockOs.platform.mockReturnValue("darwin")
-			mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.roocode.com")
+			mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.cybrosysassista.com")
 
 			mockFs.existsSync.mockReturnValue(false)
 
 			await MdmService.createInstance()
 
-			expect(mockFs.existsSync).toHaveBeenCalledWith("/Library/Application Support/RooCode/mdm.dev.json")
+			expect(mockFs.existsSync).toHaveBeenCalledWith("/Library/Application Support/CybrosysAssista/mdm.dev.json")
 		})
 
 		it("should use correct path for Linux in production", async () => {
@@ -220,7 +220,7 @@ describe("MdmService", () => {
 
 		it("should use correct path for Linux in development", async () => {
 			mockOs.platform.mockReturnValue("linux")
-			mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.roocode.com")
+			mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.cybrosysassista.com")
 
 			mockFs.existsSync.mockReturnValue(false)
 
@@ -231,13 +231,13 @@ describe("MdmService", () => {
 
 		it("should default to dev config when NODE_ENV is not set", async () => {
 			mockOs.platform.mockReturnValue("darwin")
-			mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.roocode.com")
+			mockGetClerkBaseUrl.mockReturnValue("https://dev.clerk.cybrosysassista.com")
 
 			mockFs.existsSync.mockReturnValue(false)
 
 			await MdmService.createInstance()
 
-			expect(mockFs.existsSync).toHaveBeenCalledWith("/Library/Application Support/RooCode/mdm.dev.json")
+			expect(mockFs.existsSync).toHaveBeenCalledWith("/Library/Application Support/CybrosysAssista/mdm.dev.json")
 		})
 	})
 
@@ -278,7 +278,7 @@ describe("MdmService", () => {
 
 			expect(compliance.compliant).toBe(false)
 			if (!compliance.compliant) {
-				expect(compliance.reason).toContain("Your organization requires Roo Code Cloud authentication")
+				expect(compliance.reason).toContain("Your organization requires Cybrosys Assista Cloud authentication")
 			}
 		})
 
@@ -301,7 +301,7 @@ describe("MdmService", () => {
 			expect(compliance.compliant).toBe(false)
 			if (!compliance.compliant) {
 				expect(compliance.reason).toContain(
-					"You must be authenticated with your organization's Roo Code Cloud account",
+					"You must be authenticated with your organization's Cybrosys Assista Cloud account",
 				)
 			}
 		})
@@ -341,7 +341,7 @@ describe("MdmService", () => {
 	})
 
 	describe("cloud enablement", () => {
-		it("should enable Roo Code Cloud when MDM config is present and setting is disabled", async () => {
+		it("should enable Cybrosys Assista Cloud when MDM config is present and setting is disabled", async () => {
 			const mockConfig = {
 				requireCloudAuth: true,
 				organizationId: "test-org-123",
@@ -351,7 +351,7 @@ describe("MdmService", () => {
 			mockFs.readFileSync.mockReturnValue(JSON.stringify(mockConfig))
 
 			const mockVsCodeConfig = {
-				get: vi.fn().mockReturnValue(false), // rooCodeCloudEnabled is false
+				get: vi.fn().mockReturnValue(false), // cybrosysAssistaCloudEnabled is false
 				update: vi.fn().mockResolvedValue(undefined),
 			}
 			mockVscode.workspace.getConfiguration.mockReturnValue(mockVsCodeConfig)
@@ -359,11 +359,11 @@ describe("MdmService", () => {
 			await MdmService.createInstance()
 
 			expect(mockVscode.workspace.getConfiguration).toHaveBeenCalledWith("roo-cline")
-			expect(mockVsCodeConfig.get).toHaveBeenCalledWith("rooCodeCloudEnabled", false)
-			expect(mockVsCodeConfig.update).toHaveBeenCalledWith("rooCodeCloudEnabled", true, 1) // ConfigurationTarget.Global
+			expect(mockVsCodeConfig.get).toHaveBeenCalledWith("cybrosysAssistaCloudEnabled", false)
+			expect(mockVsCodeConfig.update).toHaveBeenCalledWith("cybrosysAssistaCloudEnabled", true, 1) // ConfigurationTarget.Global
 		})
 
-		it("should not update setting when Roo Code Cloud is already enabled", async () => {
+		it("should not update setting when Cybrosys Assista Cloud is already enabled", async () => {
 			const mockConfig = {
 				requireCloudAuth: true,
 				organizationId: "test-org-123",
@@ -373,14 +373,14 @@ describe("MdmService", () => {
 			mockFs.readFileSync.mockReturnValue(JSON.stringify(mockConfig))
 
 			const mockVsCodeConfig = {
-				get: vi.fn().mockReturnValue(true), // rooCodeCloudEnabled is already true
+				get: vi.fn().mockReturnValue(true), // cybrosysAssistaCloudEnabled is already true
 				update: vi.fn().mockResolvedValue(undefined),
 			}
 			mockVscode.workspace.getConfiguration.mockReturnValue(mockVsCodeConfig)
 
 			await MdmService.createInstance()
 
-			expect(mockVsCodeConfig.get).toHaveBeenCalledWith("rooCodeCloudEnabled", false)
+			expect(mockVsCodeConfig.get).toHaveBeenCalledWith("cybrosysAssistaCloudEnabled", false)
 			expect(mockVsCodeConfig.update).not.toHaveBeenCalled()
 		})
 
@@ -400,7 +400,7 @@ describe("MdmService", () => {
 
 			await MdmService.createInstance()
 
-			expect(mockVsCodeConfig.update).toHaveBeenCalledWith("rooCodeCloudEnabled", true, 1)
+			expect(mockVsCodeConfig.update).toHaveBeenCalledWith("cybrosysAssistaCloudEnabled", true, 1)
 		})
 
 		it("should not enable cloud when no MDM config exists", async () => {

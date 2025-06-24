@@ -1,16 +1,16 @@
-# Roo Code API
+# Cybrosys Assista API
 
-The Roo Code extension exposes an API that can be used by other extensions.
+The Cybrosys Assista extension exposes an API that can be used by other extensions.
 To use this API in your extension:
 
 1. Install `@roo-code/types` with npm, pnpm, or yarn.
-2. Import the `RooCodeAPI` type.
+2. Import the `CybrosysAssistaAPI` type.
 3. Load the extension API.
 
 ```typescript
-import { RooCodeAPI } from "@roo-code/types"
+import { CybrosysAssistaAPI } from "@roo-code/types"
 
-const extension = vscode.extensions.getExtension<RooCodeAPI>("RooVeterinaryInc.roo-cline")
+const extension = vscode.extensions.getExtension<CybrosysAssistaAPI>("RooVeterinaryInc.roo-cline")
 
 if (!extension?.isActive) {
 	throw new Error("Extension is not activated")
@@ -23,7 +23,7 @@ if (!api) {
 }
 
 // Start a new task with an initial message.
-await api.startNewTask("Hello, Roo Code API! Let's make a new project...")
+await api.startNewTask("Hello, Cybrosys Assista API! Let's make a new project...")
 
 // Start a new task with an initial message and images.
 await api.startNewTask("Use this design language", ["data:image/webp;base64,..."])

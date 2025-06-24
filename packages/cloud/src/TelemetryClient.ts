@@ -1,7 +1,7 @@
-import { TelemetryEventName, type TelemetryEvent, rooCodeTelemetryEventSchema } from "@roo-code/types"
+import { TelemetryEventName, type TelemetryEvent, cybrosysAssistaTelemetryEventSchema } from "@roo-code/types"
 import { BaseTelemetryClient } from "@roo-code/telemetry"
 
-import { getRooCodeApiUrl } from "./Config"
+import { getCybrosysAssistaApiUrl } from "./Config"
 import { AuthService } from "./AuthService"
 import { SettingsService } from "./SettingsService"
 
@@ -32,7 +32,7 @@ export class TelemetryClient extends BaseTelemetryClient {
 			return
 		}
 
-		const response = await fetch(`${getRooCodeApiUrl()}/api/${path}`, {
+		const response = await fetch(`${getCybrosysAssistaApiUrl()}/api/${path}`, {
 			...options,
 			headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
 		})
@@ -62,7 +62,7 @@ export class TelemetryClient extends BaseTelemetryClient {
 			console.info(`[TelemetryClient#capture] ${JSON.stringify(payload)}`)
 		}
 
-		const result = rooCodeTelemetryEventSchema.safeParse(payload)
+		const result = cybrosysAssistaTelemetryEventSchema.safeParse(payload)
 
 		if (!result.success) {
 			console.error(

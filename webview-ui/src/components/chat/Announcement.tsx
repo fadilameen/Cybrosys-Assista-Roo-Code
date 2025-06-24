@@ -117,11 +117,11 @@ const Announcement = ({ hideAnnouncement }: AnnouncementProps) => {
 
 const DiscordLink = () => (
 	<VSCodeLink
-		href="https://discord.gg/roocode"
+		href="https://discord.gg/cybrosysassista"
 		onClick={(e) => {
 			e.preventDefault()
 			window.postMessage(
-				{ type: "action", action: "openExternal", data: { url: "https://discord.gg/roocode" } },
+				{ type: "action", action: "openExternal", data: { url: "https://discord.gg/cybrosysassista" } },
 				"*",
 			)
 		}}>
@@ -131,11 +131,11 @@ const DiscordLink = () => (
 
 const RedditLink = () => (
 	<VSCodeLink
-		href="https://reddit.com/r/RooCode"
+		href="https://reddit.com/r/CybrosysAssista"
 		onClick={(e) => {
 			e.preventDefault()
 			window.postMessage(
-				{ type: "action", action: "openExternal", data: { url: "https://reddit.com/r/RooCode" } },
+				{ type: "action", action: "openExternal", data: { url: "https://reddit.com/r/CybrosysAssista" } },
 				"*",
 			)
 		}}>

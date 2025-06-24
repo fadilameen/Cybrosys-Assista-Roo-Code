@@ -8,7 +8,7 @@ import { execa } from "execa"
 import {
 	type TaskEvent,
 	TaskCommandName,
-	RooCodeEventName,
+	CybrosysAssistaEventName,
 	IpcMessageType,
 	EVALS_SETTINGS,
 	EVALS_TIMEOUT,
@@ -68,7 +68,7 @@ export const processTask = async ({ taskId, logger }: { taskId: number; logger?:
 		await updateTask(task.id, { passed })
 
 		await publish({
-			eventName: passed ? RooCodeEventName.EvalPass : RooCodeEventName.EvalFail,
+			eventName: passed ? CybrosysAssistaEventName.EvalPass : CybrosysAssistaEventName.EvalFail,
 			taskId: task.id,
 		})
 	} finally {
@@ -203,9 +203,9 @@ export const runTask = async ({ run, task, publish, logger }: RunTaskOptions) =>
 	let rooTaskId: string | undefined
 	let isClientDisconnected = false
 
-	const ignoreEvents: Record<"broadcast" | "log", RooCodeEventName[]> = {
-		broadcast: [RooCodeEventName.Message],
-		log: [RooCodeEventName.TaskTokenUsageUpdated, RooCodeEventName.TaskAskResponded],
+	const ignoreEvents: Record<"broadcast" | "log", CybrosysAssistaEventName[]> = {
+		broadcast: [CybrosysAssistaEventName.Message],
+		log: [CybrosysAssistaEventName.TaskTokenUsageUpdated, CybrosysAssistaEventName.TaskAskResponded],
 	}
 
 	client.on(IpcMessageType.TaskEvent, async (taskEvent) => {
@@ -220,12 +220,12 @@ export const runTask = async ({ run, task, publish, logger }: RunTaskOptions) =>
 		// For message events we only log non-partial messages.
 		if (
 			!ignoreEvents.log.includes(eventName) &&
-			(eventName !== RooCodeEventName.Message || payload[0].message.partial !== true)
+			(eventName !== CybrosysAssistaEventName.Message || payload[0].message.partial !== true)
 		) {
 			logger.info(`${eventName} ->`, payload)
 		}
 
-		if (eventName === RooCodeEventName.TaskStarted) {
+		if (eventName === CybrosysAssistaEventName.TaskStarted) {
 			taskStartedAt = Date.now()
 
 			const taskMetrics = await createTaskMetrics({
@@ -245,13 +245,13 @@ export const runTask = async ({ run, task, publish, logger }: RunTaskOptions) =>
 			rooTaskId = payload[0]
 		}
 
-		if (eventName === RooCodeEventName.TaskToolFailed) {
+		if (eventName === CybrosysAssistaEventName.TaskToolFailed) {
 			const [_taskId, toolName, error] = payload
 			await createToolError({ taskId: task.id, toolName, error })
 		}
 
 		if (
-			(eventName === RooCodeEventName.TaskTokenUsageUpdated || eventName === RooCodeEventName.TaskCompleted) &&
+			(eventName === CybrosysAssistaEventName.TaskTokenUsageUpdated || eventName === CybrosysAssistaEventName.TaskCompleted) &&
 			taskMetricsId
 		) {
 			const duration = Date.now() - taskStartedAt
@@ -270,16 +270,16 @@ export const runTask = async ({ run, task, publish, logger }: RunTaskOptions) =>
 			})
 		}
 
-		if (eventName === RooCodeEventName.TaskCompleted && taskMetricsId) {
+		if (eventName === CybrosysAssistaEventName.TaskCompleted && taskMetricsId) {
 			const toolUsage = payload[2]
 			await updateTaskMetrics(taskMetricsId, { toolUsage })
 		}
 
-		if (eventName === RooCodeEventName.TaskAborted) {
+		if (eventName === CybrosysAssistaEventName.TaskAborted) {
 			taskAbortedAt = Date.now()
 		}
 
-		if (eventName === RooCodeEventName.TaskCompleted) {
+		if (eventName === CybrosysAssistaEventName.TaskCompleted) {
 			taskFinishedAt = Date.now()
 		}
 	})

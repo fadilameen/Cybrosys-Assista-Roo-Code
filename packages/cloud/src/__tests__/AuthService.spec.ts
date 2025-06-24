@@ -100,8 +100,8 @@ describe("AuthService", () => {
 		vi.mocked(RefreshTimer).mockImplementation(() => mockTimer as unknown as RefreshTimer)
 
 		// Setup config mocks - use production URL by default to maintain existing test behavior
-		vi.mocked(Config.getClerkBaseUrl).mockReturnValue("https://clerk.roocode.com")
-		vi.mocked(Config.getRooCodeApiUrl).mockReturnValue("https://api.test.com")
+		vi.mocked(Config.getClerkBaseUrl).mockReturnValue("https://clerk.cybrosysassista.com")
+		vi.mocked(Config.getCybrosysAssistaApiUrl).mockReturnValue("https://api.test.com")
 
 		// Setup utils mock
 		vi.mocked(utils.getUserAgent).mockReturnValue("Roo-Code 1.0.0")
@@ -272,8 +272,8 @@ describe("AuthService", () => {
 				throw new Error("Crypto error")
 			})
 
-			await expect(authService.login()).rejects.toThrow("Failed to initiate Roo Code Cloud authentication")
-			expect(mockLog).toHaveBeenCalledWith("[auth] Error initiating Roo Code Cloud auth: Error: Crypto error")
+			await expect(authService.login()).rejects.toThrow("Failed to initiate Cybrosys Assista Cloud authentication")
+			expect(mockLog).toHaveBeenCalledWith("[auth] Error initiating Cybrosys Assista Cloud auth: Error: Crypto error")
 		})
 	})
 
@@ -288,17 +288,17 @@ describe("AuthService", () => {
 			vi.mocked(vscode.window.showInformationMessage).mockImplementation(mockShowInfo)
 
 			await authService.handleCallback(null, "state")
-			expect(mockShowInfo).toHaveBeenCalledWith("Invalid Roo Code Cloud sign in url")
+			expect(mockShowInfo).toHaveBeenCalledWith("Invalid Cybrosys Assista Cloud sign in url")
 
 			await authService.handleCallback("code", null)
-			expect(mockShowInfo).toHaveBeenCalledWith("Invalid Roo Code Cloud sign in url")
+			expect(mockShowInfo).toHaveBeenCalledWith("Invalid Cybrosys Assista Cloud sign in url")
 		})
 
 		it("should validate state parameter", async () => {
 			mockContext.globalState.get.mockReturnValue("stored-state")
 
 			await expect(authService.handleCallback("code", "different-state")).rejects.toThrow(
-				"Failed to handle Roo Code Cloud callback",
+				"Failed to handle Cybrosys Assista Cloud callback",
 			)
 			expect(mockLog).toHaveBeenCalledWith("[auth] State mismatch in callback")
 		})
@@ -330,7 +330,7 @@ describe("AuthService", () => {
 				"clerk-auth-credentials",
 				JSON.stringify({ clientToken: "Bearer token-123", sessionId: "session-123", organizationId: null }),
 			)
-			expect(mockShowInfo).toHaveBeenCalledWith("Successfully authenticated with Roo Code Cloud")
+			expect(mockShowInfo).toHaveBeenCalledWith("Successfully authenticated with Cybrosys Assista Cloud")
 		})
 
 		it("should handle Clerk API errors", async () => {
@@ -347,7 +347,7 @@ describe("AuthService", () => {
 			authService.on("logged-out", loggedOutSpy)
 
 			await expect(authService.handleCallback("auth-code", storedState)).rejects.toThrow(
-				"Failed to handle Roo Code Cloud callback",
+				"Failed to handle Cybrosys Assista Cloud callback",
 			)
 			expect(loggedOutSpy).toHaveBeenCalled()
 		})
@@ -377,7 +377,7 @@ describe("AuthService", () => {
 			expect(mockContext.secrets.delete).toHaveBeenCalledWith("clerk-auth-credentials")
 			expect(mockContext.globalState.update).toHaveBeenCalledWith("clerk-auth-state", undefined)
 			expect(mockFetch).toHaveBeenCalledWith(
-				"https://clerk.roocode.com/v1/client/sessions/test-session/remove",
+				"https://clerk.cybrosysassista.com/v1/client/sessions/test-session/remove",
 				expect.objectContaining({
 					method: "POST",
 					headers: expect.objectContaining({
@@ -385,7 +385,7 @@ describe("AuthService", () => {
 					}),
 				}),
 			)
-			expect(mockShowInfo).toHaveBeenCalledWith("Logged out from Roo Code Cloud")
+			expect(mockShowInfo).toHaveBeenCalledWith("Logged out from Cybrosys Assista Cloud")
 		})
 
 		it("should handle logout without credentials", async () => {
@@ -397,7 +397,7 @@ describe("AuthService", () => {
 
 			expect(mockContext.secrets.delete).toHaveBeenCalled()
 			expect(mockFetch).not.toHaveBeenCalled()
-			expect(mockShowInfo).toHaveBeenCalledWith("Logged out from Roo Code Cloud")
+			expect(mockShowInfo).toHaveBeenCalledWith("Logged out from Cybrosys Assista Cloud")
 		})
 
 		it("should handle Clerk logout errors gracefully", async () => {
@@ -417,7 +417,7 @@ describe("AuthService", () => {
 			await authService.logout()
 
 			expect(mockLog).toHaveBeenCalledWith("[auth] Error calling clerkLogout:", expect.any(Error))
-			expect(mockShowInfo).toHaveBeenCalledWith("Logged out from Roo Code Cloud")
+			expect(mockShowInfo).toHaveBeenCalledWith("Logged out from Cybrosys Assista Cloud")
 		})
 	})
 
@@ -933,7 +933,7 @@ describe("AuthService", () => {
 			})
 
 			await expect(authService.handleCallback("auth-code", storedState)).rejects.toThrow(
-				"Failed to handle Roo Code Cloud callback",
+				"Failed to handle Cybrosys Assista Cloud callback",
 			)
 		})
 	})
@@ -958,7 +958,7 @@ describe("AuthService", () => {
 	describe("auth credentials key scoping", () => {
 		it("should use default key when getClerkBaseUrl returns production URL", async () => {
 			// Mock getClerkBaseUrl to return production URL
-			vi.mocked(Config.getClerkBaseUrl).mockReturnValue("https://clerk.roocode.com")
+			vi.mocked(Config.getClerkBaseUrl).mockReturnValue("https://clerk.cybrosysassista.com")
 
 			const service = new AuthService(mockContext as unknown as vscode.ExtensionContext, mockLog)
 			const credentials = { clientToken: "test-token", sessionId: "test-session" }

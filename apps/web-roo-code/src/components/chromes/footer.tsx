@@ -34,7 +34,7 @@ export function Footer() {
 				<div className="xl:grid xl:grid-cols-3 xl:gap-8">
 					<div className="space-y-8">
 						<div className="flex items-center">
-							<Image src={logoSrc} alt="Roo Code Logo" width={120} height={40} className="h-6 w-auto" />
+							<Image src={logoSrc} alt="Cybrosys Assista Logo" width={120} height={40} className="h-6 w-auto" />
 						</div>
 						<p className="max-w-md text-sm leading-6 text-muted-foreground md:pr-16 lg:pr-32">
 							Empowering developers to build better software faster with AI-powered tools and insights.
@@ -232,7 +232,7 @@ export function Footer() {
 								<ul className="mt-6 space-y-4">
 									<li>
 										<a
-											href="mailto:support@roocode.com"
+											href="mailto:support@cybrosysassista.com"
 											className="text-sm leading-6 text-muted-foreground transition-colors hover:text-foreground">
 											Contact
 										</a>
@@ -283,7 +283,7 @@ export function Footer() {
 															href={INTERNAL_LINKS.PRIVACY_POLICY_WEBSITE}
 															onClick={() => setPrivacyDropdownOpen(false)}
 															className="rounded-md px-3 py-2 transition-colors hover:bg-accent/50 hover:text-foreground">
-															Roo Code Cloud
+															Cybrosys Assista Cloud
 														</Link>
 													</div>
 												</div>
@@ -298,7 +298,7 @@ export function Footer() {
 
 				<div className="mt-16 flex border-t border-border pt-8 sm:mt-20 lg:mt-24">
 					<p className="mx-auto text-sm leading-5 text-muted-foreground">
-						&copy; {new Date().getFullYear()} Roo Code. All rights reserved.
+						&copy; {new Date().getFullYear()} Cybrosys Assista. All rights reserved.
 					</p>
 				</div>
 			</div>

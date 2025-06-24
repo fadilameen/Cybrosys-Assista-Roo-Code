@@ -1,6 +1,6 @@
 {
 	"extension": {
-		"name": "Roo Code",
+		"name": "Cybrosys Assista",
 		"description": "Een compleet ontwikkelteam van AI-agenten in je editor."
 	},
 	"number_format": {
@@ -101,8 +101,8 @@
 	},
 	"storage": {
 		"prompt_custom_path": "Voer een aangepast opslagpad voor gespreksgeschiedenis in, laat leeg voor standaardlocatie",
-		"path_placeholder": "D:\\RooCodeStorage",
-		"enter_absolute_path": "Voer een absoluut pad in (bijv. D:\\RooCodeStorage of /home/user/storage)",
+		"path_placeholder": "D:\\CybrosysAssistaStorage",
+		"enter_absolute_path": "Voer een absoluut pad in (bijv. D:\\CybrosysAssistaStorage of /home/user/storage)",
 		"enter_valid_path": "Voer een geldig pad in"
 	},
 	"input": {
@@ -122,8 +122,8 @@
 	},
 	"mdm": {
 		"errors": {
-			"cloud_auth_required": "Je organisatie vereist Roo Code Cloud-authenticatie. Log in om door te gaan.",
-			"organization_mismatch": "Je moet geauthenticeerd zijn met het Roo Code Cloud-account van je organisatie.",
+			"cloud_auth_required": "Je organisatie vereist Cybrosys Assista Cloud-authenticatie. Log in om door te gaan.",
+			"organization_mismatch": "Je moet geauthenticeerd zijn met het Cybrosys Assista Cloud-account van je organisatie.",
 			"verification_failed": "Kan organisatie-authenticatie niet verifiëren."
 		}
 	}

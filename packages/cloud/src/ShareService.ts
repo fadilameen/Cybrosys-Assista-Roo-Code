@@ -2,7 +2,7 @@ import axios from "axios"
 import * as vscode from "vscode"
 
 import { shareResponseSchema } from "@roo-code/types"
-import { getRooCodeApiUrl } from "./Config"
+import { getCybrosysAssistaApiUrl } from "./Config"
 import type { AuthService } from "./AuthService"
 import type { SettingsService } from "./SettingsService"
 import { getUserAgent } from "./utils"
@@ -32,7 +32,7 @@ export class ShareService {
 			}
 
 			const response = await axios.post(
-				`${getRooCodeApiUrl()}/api/extension/share`,
+				`${getCybrosysAssistaApiUrl()}/api/extension/share`,
 				{ taskId, visibility },
 				{
 					headers: {

@@ -1,6 +1,6 @@
 {
 	"extension": {
-		"name": "Roo Code",
+		"name": "Cybrosys Assista",
 		"description": "Une équipe complète de développeurs IA dans votre éditeur."
 	},
 	"number_format": {
@@ -101,8 +101,8 @@
 	},
 	"storage": {
 		"prompt_custom_path": "Entrez le chemin de stockage personnalisé pour l'historique des conversations, laissez vide pour utiliser l'emplacement par défaut",
-		"path_placeholder": "D:\\RooCodeStorage",
-		"enter_absolute_path": "Veuillez entrer un chemin absolu (ex. D:\\RooCodeStorage ou /home/user/storage)",
+		"path_placeholder": "D:\\CybrosysAssistaStorage",
+		"enter_absolute_path": "Veuillez entrer un chemin absolu (ex. D:\\CybrosysAssistaStorage ou /home/user/storage)",
 		"enter_valid_path": "Veuillez entrer un chemin valide"
 	},
 	"input": {
@@ -122,8 +122,8 @@
 	},
 	"mdm": {
 		"errors": {
-			"cloud_auth_required": "Votre organisation nécessite une authentification Roo Code Cloud. Veuillez vous connecter pour continuer.",
-			"organization_mismatch": "Vous devez être authentifié avec le compte Roo Code Cloud de votre organisation.",
+			"cloud_auth_required": "Votre organisation nécessite une authentification Cybrosys Assista Cloud. Veuillez vous connecter pour continuer.",
+			"organization_mismatch": "Vous devez être authentifié avec le compte Cybrosys Assista Cloud de votre organisation.",
 			"verification_failed": "Impossible de vérifier l'authentification de l'organisation."
 		}
 	}

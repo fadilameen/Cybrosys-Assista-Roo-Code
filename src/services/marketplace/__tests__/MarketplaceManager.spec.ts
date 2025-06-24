@@ -9,7 +9,7 @@ vi.mock("axios")
 
 // Mock the cloud config
 vi.mock("@roo-code/cloud", () => ({
-	getRooCodeApiUrl: () => "https://test.api.com",
+	getCybrosysAssistaApiUrl: () => "https://test.api.com",
 }))
 
 // Mock TelemetryService

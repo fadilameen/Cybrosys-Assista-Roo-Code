@@ -6,7 +6,7 @@ import { z } from "zod"
 
 import type { CloudUserInfo, CloudOrganizationMembership } from "@roo-code/types"
 
-import { getClerkBaseUrl, getRooCodeApiUrl, PRODUCTION_CLERK_BASE_URL } from "./Config"
+import { getClerkBaseUrl, getCybrosysAssistaApiUrl, PRODUCTION_CLERK_BASE_URL } from "./Config"
 import { RefreshTimer } from "./RefreshTimer"
 import { getUserAgent } from "./utils"
 
@@ -263,19 +263,19 @@ export class AuthService extends EventEmitter<AuthServiceEvents> {
 				state,
 				auth_redirect: `${vscode.env.uriScheme}://${publisher}.${name}`,
 			})
-			const url = `${getRooCodeApiUrl()}/extension/sign-in?${params.toString()}`
+			const url = `${getCybrosysAssistaApiUrl()}/extension/sign-in?${params.toString()}`
 			await vscode.env.openExternal(vscode.Uri.parse(url))
 		} catch (error) {
-			this.log(`[auth] Error initiating Roo Code Cloud auth: ${error}`)
-			throw new Error(`Failed to initiate Roo Code Cloud authentication: ${error}`)
+			this.log(`[auth] Error initiating Cybrosys Assista Cloud auth: ${error}`)
+			throw new Error(`Failed to initiate Cybrosys Assista Cloud authentication: ${error}`)
 		}
 	}
 
 	/**
-	 * Handle the callback from Roo Code Cloud
+	 * Handle the callback from Cybrosys Assista Cloud
 	 *
 	 * This method is called when the user is redirected back to the extension
-	 * after authenticating with Roo Code Cloud.
+	 * after authenticating with Cybrosys Assista Cloud.
 	 *
 	 * @param code The authorization code from the callback
 	 * @param state The state parameter from the callback
@@ -287,7 +287,7 @@ export class AuthService extends EventEmitter<AuthServiceEvents> {
 		organizationId?: string | null,
 	): Promise<void> {
 		if (!code || !state) {
-			vscode.window.showInformationMessage("Invalid Roo Code Cloud sign in url")
+			vscode.window.showInformationMessage("Invalid Cybrosys Assista Cloud sign in url")
 			return
 		}
 
@@ -307,14 +307,14 @@ export class AuthService extends EventEmitter<AuthServiceEvents> {
 
 			await this.storeCredentials(credentials)
 
-			vscode.window.showInformationMessage("Successfully authenticated with Roo Code Cloud")
-			this.log("[auth] Successfully authenticated with Roo Code Cloud")
+			vscode.window.showInformationMessage("Successfully authenticated with Cybrosys Assista Cloud")
+			this.log("[auth] Successfully authenticated with Cybrosys Assista Cloud")
 		} catch (error) {
-			this.log(`[auth] Error handling Roo Code Cloud callback: ${error}`)
+			this.log(`[auth] Error handling Cybrosys Assista Cloud callback: ${error}`)
 			const previousState = this.state
 			this.state = "logged-out"
 			this.emit("logged-out", { previousState })
-			throw new Error(`Failed to handle Roo Code Cloud callback: ${error}`)
+			throw new Error(`Failed to handle Cybrosys Assista Cloud callback: ${error}`)
 		}
 	}
 
@@ -339,11 +339,11 @@ export class AuthService extends EventEmitter<AuthServiceEvents> {
 				}
 			}
 
-			vscode.window.showInformationMessage("Logged out from Roo Code Cloud")
-			this.log("[auth] Logged out from Roo Code Cloud")
+			vscode.window.showInformationMessage("Logged out from Cybrosys Assista Cloud")
+			this.log("[auth] Logged out from Cybrosys Assista Cloud")
 		} catch (error) {
-			this.log(`[auth] Error logging out from Roo Code Cloud: ${error}`)
-			throw new Error(`Failed to log out from Roo Code Cloud: ${error}`)
+			this.log(`[auth] Error logging out from Cybrosys Assista Cloud: ${error}`)
+			throw new Error(`Failed to log out from Cybrosys Assista Cloud: ${error}`)
 		}
 	}
 

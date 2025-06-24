@@ -1,6 +1,6 @@
 {
 	"extension": {
-		"name": "Roo Code",
+		"name": "Cybrosys Assista",
 		"description": "Toàn bộ đội ngũ phát triển AI trong trình soạn thảo của bạn."
 	},
 	"number_format": {
@@ -101,8 +101,8 @@
 	},
 	"storage": {
 		"prompt_custom_path": "Nhập đường dẫn lưu trữ tùy chỉnh cho lịch sử hội thoại, để trống để sử dụng vị trí mặc định",
-		"path_placeholder": "D:\\RooCodeStorage",
-		"enter_absolute_path": "Vui lòng nhập đường dẫn tuyệt đối (ví dụ: D:\\RooCodeStorage hoặc /home/user/storage)",
+		"path_placeholder": "D:\\CybrosysAssistaStorage",
+		"enter_absolute_path": "Vui lòng nhập đường dẫn tuyệt đối (ví dụ: D:\\CybrosysAssistaStorage hoặc /home/user/storage)",
 		"enter_valid_path": "Vui lòng nhập đường dẫn hợp lệ"
 	},
 	"input": {
@@ -122,8 +122,8 @@
 	},
 	"mdm": {
 		"errors": {
-			"cloud_auth_required": "Tổ chức của bạn yêu cầu xác thực Roo Code Cloud. Vui lòng đăng nhập để tiếp tục.",
-			"organization_mismatch": "Bạn phải được xác thực bằng tài khoản Roo Code Cloud của tổ chức.",
+			"cloud_auth_required": "Tổ chức của bạn yêu cầu xác thực Cybrosys Assista Cloud. Vui lòng đăng nhập để tiếp tục.",
+			"organization_mismatch": "Bạn phải được xác thực bằng tài khoản Cybrosys Assista Cloud của tổ chức.",
 			"verification_failed": "Không thể xác minh xác thực tổ chức."
 		}
 	}

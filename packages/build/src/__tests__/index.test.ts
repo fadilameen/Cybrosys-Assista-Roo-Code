@@ -70,7 +70,7 @@ describe("generatePackageJson", () => {
 							{
 								command: "roo-cline.accountButtonClicked",
 								group: "navigation@6",
-								when: "activeWebviewPanelId == roo-cline.TabPanelProvider && config.roo-cline.rooCodeCloudEnabled",
+								when: "activeWebviewPanelId == roo-cline.TabPanelProvider && config.roo-cline.cybrosysAssistaCloudEnabled",
 							},
 						],
 					},
@@ -109,7 +109,7 @@ describe("generatePackageJson", () => {
 			},
 			overrideJson: {
 				name: "roo-code-nightly",
-				displayName: "Roo Code Nightly",
+				displayName: "Cybrosys Assista Nightly",
 				publisher: "RooVeterinaryInc",
 				version: "0.0.1",
 				icon: "assets/icons/icon-nightly.png",
@@ -120,7 +120,7 @@ describe("generatePackageJson", () => {
 
 		expect(generatedPackageJson).toStrictEqual({
 			name: "roo-code-nightly",
-			displayName: "Roo Code Nightly",
+			displayName: "Cybrosys Assista Nightly",
 			description: "%extension.description%",
 			publisher: "RooVeterinaryInc",
 			version: "0.0.1",
@@ -183,7 +183,7 @@ describe("generatePackageJson", () => {
 						{
 							command: "roo-code-nightly.accountButtonClicked",
 							group: "navigation@6",
-							when: "activeWebviewPanelId == roo-code-nightly.TabPanelProvider && config.roo-code-nightly.rooCodeCloudEnabled",
+							when: "activeWebviewPanelId == roo-code-nightly.TabPanelProvider && config.roo-code-nightly.cybrosysAssistaCloudEnabled",
 						},
 					],
 				},

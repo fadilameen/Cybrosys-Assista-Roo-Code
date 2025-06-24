@@ -59,7 +59,7 @@
       <template><![CDATA[
 ## Configuration
 
-You can customize this feature in Roo's settings:
+You can customize this feature in Assista's settings:
 
 1. **[Human-friendly setting name]**
    - What it does: [Plain language explanation]
@@ -198,7 +198,7 @@ The [`read_file`](/advanced-usage/available-tools/read-file) tool automatically 
 
 ## Configuration
 
-You can customize this feature in Roo's settings:
+You can customize this feature in Assista's settings:
 
 1. **Enable/Disable Concurrent File Reads**
    - What it does: Controls whether Roo can read multiple files at once
@@ -236,7 +236,7 @@ You can customize this feature in Roo's settings:
 
 If you run into issues:
 1. Check the [FAQ section](/faq) for common solutions
-2. Report problems on [GitHub Issues](https://github.com/RooCodeInc/Roo-Code/issues)
+2. Report problems on [GitHub Issues](https://github.com/CybrosysAssistaInc/Assista-Code/issues)
 3. Include what you were trying to do and any error messages
     ]]></content>
   </real_world_example>

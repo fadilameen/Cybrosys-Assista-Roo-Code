@@ -7,7 +7,7 @@ import {
 	organizationSettingsSchema,
 } from "@roo-code/types"
 
-import { getRooCodeApiUrl } from "./Config"
+import { getCybrosysAssistaApiUrl } from "./Config"
 import { AuthService } from "./AuthService"
 import { RefreshTimer } from "./RefreshTimer"
 
@@ -70,7 +70,7 @@ export class SettingsService {
 		}
 
 		try {
-			const response = await fetch(`${getRooCodeApiUrl()}/api/organization-settings`, {
+			const response = await fetch(`${getCybrosysAssistaApiUrl()}/api/organization-settings`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},

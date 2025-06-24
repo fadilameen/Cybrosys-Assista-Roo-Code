@@ -13,7 +13,7 @@ import {
 	type GlobalState,
 	type ProviderName,
 	type ProviderSettings,
-	type RooCodeSettings,
+	type CybrosysAssistaSettings,
 	type ProviderSettingsEntry,
 	type TelemetryProperties,
 	type TelemetryPropertiesProvider,
@@ -694,7 +694,7 @@ export class ClineProvider
 						window.AUDIO_BASE_URI = "${audioUri}"
 						window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 					</script>
-					<title>Roo Code</title>
+					<title>Cybrosys Assista</title>
 				</head>
 				<body>
 					<div id="root"></div>
@@ -767,7 +767,7 @@ export class ClineProvider
 				window.AUDIO_BASE_URI = "${audioUri}"
 				window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 			</script>
-            <title>Roo Code</title>
+            <title>Cybrosys Assista</title>
           </head>
           <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -1664,11 +1664,11 @@ export class ClineProvider
 		return this.contextProxy.getValue(key)
 	}
 
-	public async setValue<K extends keyof RooCodeSettings>(key: K, value: RooCodeSettings[K]) {
+	public async setValue<K extends keyof CybrosysAssistaSettings>(key: K, value: CybrosysAssistaSettings[K]) {
 		await this.contextProxy.setValue(key, value)
 	}
 
-	public getValue<K extends keyof RooCodeSettings>(key: K) {
+	public getValue<K extends keyof CybrosysAssistaSettings>(key: K) {
 		return this.contextProxy.getValue(key)
 	}
 
@@ -1676,7 +1676,7 @@ export class ClineProvider
 		return this.contextProxy.getValues()
 	}
 
-	public async setValues(values: RooCodeSettings) {
+	public async setValues(values: CybrosysAssistaSettings) {
 		await this.contextProxy.setValues(values)
 	}
 

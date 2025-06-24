@@ -8,12 +8,12 @@ export const revalidate = 300
 export const dynamic = "force-dynamic"
 
 export const metadata: Metadata = {
-	title: "Roo Code Evals",
+	title: "Cybrosys Assista Evals",
 	openGraph: {
-		title: "Roo Code Evals",
+		title: "Cybrosys Assista Evals",
 		description: "Quantitative evals of LLM coding skills.",
-		url: "https://roocode.com/evals",
-		siteName: "Roo Code",
+		url: "https://cybrosysassista.com/evals",
+		siteName: "Cybrosys Assista",
 		images: {
 			url: "https://i.imgur.com/ijP7aZm.png",
 			width: 1954,

@@ -15,7 +15,7 @@
       <tool_name>get_issue</tool_name>
       <arguments>
       {
-        "owner": "RooCodeInc",
+        "owner": "CybrosysAssistaInc",
         "repo": "Roo-Code",
         "issue_number": [extracted number]
       }
@@ -30,7 +30,7 @@
       <tool_name>get_pull_request</tool_name>
       <arguments>
       {
-        "owner": "RooCodeInc",
+        "owner": "CybrosysAssistaInc",
         "repo": "Roo-Code",
         "pull_number": [extracted number]
       }
@@ -44,7 +44,7 @@
       <tool_name>get_pull_request_reviews</tool_name>
       <arguments>
       {
-        "owner": "RooCodeInc",
+        "owner": "CybrosysAssistaInc",
         "repo": "Roo-Code",
         "pull_number": [extracted number]
       }
@@ -74,7 +74,7 @@
       <tool_name>get_issue_comments</tool_name>
       <arguments>
       {
-        "owner": "RooCodeInc",
+        "owner": "CybrosysAssistaInc",
         "repo": "Roo-Code",
         "issue_number": [issue number]
       }
@@ -412,13 +412,13 @@
 
       **Branch:** [branch-name]
       **Title:** [PR title]
-      **Target:** RooCodeInc/Roo-Code (main branch)
+      **Target:** CybrosysAssistaInc/Roo-Code (main branch)
 
       Here's the PR description:
 
       [Show prepared PR description]
 
-      Would you like me to create this pull request to RooCodeInc/Roo-Code?</question>
+      Would you like me to create this pull request to CybrosysAssistaInc/Roo-Code?</question>
       <follow_up>
       <suggest>Yes, create the pull request</suggest>
       <suggest>Let me review the PR description first</suggest>
@@ -439,7 +439,7 @@
       <tool_name>create_pull_request</tool_name>
       <arguments>
       {
-        "owner": "RooCodeInc",
+        "owner": "CybrosysAssistaInc",
         "repo": "Roo-Code",
         "title": "[Type]: [Brief description] (#[issue-number])",
         "head": "[user-fork-owner]:[branch-name]",
@@ -465,7 +465,7 @@
       <tool_name>add_issue_comment</tool_name>
       <arguments>
       {
-        "owner": "RooCodeInc",
+        "owner": "CybrosysAssistaInc",
         "repo": "Roo-Code",
         "issue_number": [original issue number],
         "body": "PR #[new PR number] has been created to address this issue: [PR URL]"

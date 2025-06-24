@@ -14,13 +14,13 @@
 		"node": "20.19.2"
 	},
 	"author": {
-		"name": "Roo Code"
+		"name": "Cybrosys Assista"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/RooCodeInc/Roo-Code"
+		"url": "https://github.com/CybrosysAssistaInc/Roo-Code"
 	},
-	"homepage": "https://github.com/RooCodeInc/Roo-Code",
+	"homepage": "https://github.com/CybrosysAssistaInc/Roo-Code",
 	"categories": [
 		"AI",
 		"Chat",
@@ -42,8 +42,8 @@
 		"sonnet",
 		"ai",
 		"llama",
-		"roo code",
-		"roocode"
+		"cybrosys assista",
+		"cybrosysassista"
 	],
 	"activationEvents": [
 		"onLanguage",
@@ -104,7 +104,7 @@
 				"command": "roo-cline.accountButtonClicked",
 				"title": "Account",
 				"icon": "$(account)",
-				"when": "config.roo-cline.rooCodeCloudEnabled"
+				"when": "config.roo-cline.cybrosysAssistaCloudEnabled"
 			},
 			{
 				"command": "roo-cline.settingsButtonClicked",
@@ -247,7 +247,7 @@
 				{
 					"command": "roo-cline.accountButtonClicked",
 					"group": "navigation@7",
-					"when": "view == roo-cline.SidebarProvider && config.roo-cline.rooCodeCloudEnabled"
+					"when": "view == roo-cline.SidebarProvider && config.roo-cline.cybrosysAssistaCloudEnabled"
 				},
 				{
 					"command": "roo-cline.settingsButtonClicked",
@@ -284,7 +284,7 @@
 				{
 					"command": "roo-cline.accountButtonClicked",
 					"group": "navigation@6",
-					"when": "activeWebviewPanelId == roo-cline.TabPanelProvider && config.roo-cline.rooCodeCloudEnabled"
+					"when": "activeWebviewPanelId == roo-cline.TabPanelProvider && config.roo-cline.cybrosysAssistaCloudEnabled"
 				},
 				{
 					"command": "roo-cline.settingsButtonClicked",
@@ -340,10 +340,10 @@
 					"default": "",
 					"description": "%settings.customStoragePath.description%"
 				},
-				"roo-cline.rooCodeCloudEnabled": {
+				"roo-cline.cybrosysAssistaCloudEnabled": {
 					"type": "boolean",
 					"default": false,
-					"description": "%settings.rooCodeCloudEnabled.description%"
+					"description": "%settings.cybrosysAssistaCloudEnabled.description%"
 				},
 				"roo-cline.enableCodeActions": {
 					"type": "boolean",
