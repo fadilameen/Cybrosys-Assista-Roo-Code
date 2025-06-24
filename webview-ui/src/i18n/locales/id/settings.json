@@ -590,7 +590,7 @@
 		"useCustomModel": "Gunakan kustom: {{modelId}}"
 	},
 	"footer": {
-		"feedback": "Jika kamu punya pertanyaan atau feedback, jangan ragu untuk membuka issue di <githubLink>github.com/CybrosysAssistaInc/Assista-Code</githubLink> atau bergabung <redditLink>reddit.com/r/CybrosysAssista</redditLink> atau <discordLink>discord.gg/cybrosysassista</discordLink>",
+		"feedback": "Jika kamu punya pertanyaan atau feedback, jangan ragu untuk membuka issue di <githubLink>github.com/CybrosysAssistaInc/Cybrosys-Assista</githubLink> atau bergabung <redditLink>reddit.com/r/CybrosysAssista</redditLink> atau <discordLink>discord.gg/cybrosysassista</discordLink>",
 		"telemetry": {
 			"label": "Izinkan pelaporan error dan penggunaan anonim",
 			"description": "Bantu tingkatkan Cybrosys Assista dengan mengirim data penggunaan anonim dan laporan error. Tidak ada kode, prompt, atau informasi pribadi yang pernah dikirim. Lihat kebijakan privasi kami untuk detail lebih lanjut."

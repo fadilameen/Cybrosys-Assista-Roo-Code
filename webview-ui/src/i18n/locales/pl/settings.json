@@ -561,7 +561,7 @@
 		"useCustomModel": "Użyj niestandardowy: {{modelId}}"
 	},
 	"footer": {
-		"feedback": "Jeśli masz jakiekolwiek pytania lub opinie, śmiało otwórz zgłoszenie na <githubLink>github.com/CybrosysAssistaInc/Assista-Code</githubLink> lub dołącz do <redditLink>reddit.com/r/CybrosysAssista</redditLink> lub <discordLink>discord.gg/cybrosysassista</discordLink>",
+		"feedback": "Jeśli masz jakiekolwiek pytania lub opinie, śmiało otwórz zgłoszenie na <githubLink>github.com/CybrosysAssistaInc/Cybrosys-Assista</githubLink> lub dołącz do <redditLink>reddit.com/r/CybrosysAssista</redditLink> lub <discordLink>discord.gg/cybrosysassista</discordLink>",
 		"telemetry": {
 			"label": "Zezwól na anonimowe raportowanie błędów i użycia",
 			"description": "Pomóż ulepszyć Cybrosys Assista, wysyłając anonimowe dane o użytkowaniu i raporty o błędach. Nigdy nie są wysyłane kod, podpowiedzi ani informacje osobiste. Zobacz naszą politykę prywatności, aby uzyskać więcej szczegółów."
