@@ -23,7 +23,7 @@
 <br>
 
 <div align="center">
-<h1>Cybrosys Assista (이전 Roo Cline)</h1>
+<h1>Cybrosys Assista</h1>
 <p align="center">
 <img src="https://media.githubusercontent.com/media/CybrosysAssistaInc/Roo-Code/main/src/assets/docs/demo.gif" width="100%" />
 </p>
